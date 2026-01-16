@@ -12,11 +12,13 @@ The VC (https://thevc.kr/) 스타일의 대시보드 형태 웹사이트 개발
 ### 1. 프론트엔드 (핵심)
 
 #### React + TypeScript
-- **React 19**: 최신 버전의 React 사용
+- **React 19.2.3**: 최신 버전의 React 사용
+- **React DOM 19.2.3**: 최신 버전
 - **TypeScript**: 타입 안정성 보장
 - 기존 ai-insight-agent-ori 프로젝트와 일관성 유지
 
-#### Next.js 14 (App Router)
+#### Next.js 16 (App Router)
+- **버전**: Next.js 16.1.2 (최신 LTS)
 - **이유**: 
   - SSR/SSG 지원으로 SEO 최적화
   - 내장 라우팅 시스템
@@ -170,41 +172,59 @@ The VC (https://thevc.kr/) 스타일의 대시보드 형태 웹사이트 개발
 - Tailwind CSS의 반응형 유틸리티 활용
 - 모바일, 태블릿, 데스크톱 대응
 
-## 프로젝트 구조 (예상)
+## 프로젝트 구조
 
 ```
 hw-ecosystem/
 ├── docs/                    # 문서
-├── src/
-│   ├── app/                 # Next.js App Router
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   └── api/             # API Routes
-│   ├── components/          # 재사용 컴포넌트
-│   │   ├── ui/              # shadcn/ui 컴포넌트
-│   │   ├── charts/          # 차트 컴포넌트
-│   │   ├── tables/          # 테이블 컴포넌트
-│   │   └── dashboard/       # 대시보드 컴포넌트
-│   ├── lib/                 # 유틸리티 함수
-│   ├── hooks/               # 커스텀 훅
-│   ├── stores/              # Zustand 스토어
-│   └── types/               # TypeScript 타입 정의
-├── public/                  # 정적 파일
-├── package.json
-├── tsconfig.json
-├── tailwind.config.js
-└── next.config.js
+│   └── development-stack.md # 개발 스택 문서
+├── app/                     # Next.js App Router
+│   ├── layout.tsx           # 루트 레이아웃
+│   ├── page.tsx             # 홈 페이지
+│   └── globals.css          # 전역 스타일
+├── components/              # React 컴포넌트 (shadcn/ui)
+│   └── ui/                  # shadcn/ui 컴포넌트
+├── lib/                     # 유틸리티 함수
+│   ├── providers.tsx        # TanStack Query Provider
+│   ├── api-client.ts        # Axios 클라이언트
+│   └── utils.ts             # 공통 유틸리티
+├── stores/                  # Zustand 스토어
+│   └── useDashboardStore.ts # 대시보드 상태 관리
+├── types/                   # TypeScript 타입 정의
+│   └── index.ts             # 공통 타입
+├── public/                 # 정적 파일
+├── package.json             # 의존성 관리
+├── tsconfig.json            # TypeScript 설정
+├── components.json          # shadcn/ui 설정
+└── next.config.ts           # Next.js 설정
 ```
+
+## 설치된 버전 (2025-01-16 기준)
+
+- **Next.js**: 16.1.2 (최신 LTS)
+- **React**: 19.2.3 (최신)
+- **React DOM**: 19.2.3 (최신)
+- **TypeScript**: 5.x
+- **Tailwind CSS**: 4.x
+- **TanStack Query**: 5.90.17
+- **TanStack Table**: 8.21.3
+- **Zustand**: 5.0.10
+- **Recharts**: 3.6.0
+- **React Hook Form**: 7.71.1
+- **Zod**: 4.3.5
+- **Framer Motion**: 12.26.2
+- **date-fns**: 4.1.0
+- **Axios**: 1.13.2
 
 ## 다음 단계
 
-1. 프로젝트 초기화 (Next.js + TypeScript)
-2. Tailwind CSS 설정
-3. shadcn/ui 설치 및 설정
-4. 기본 레이아웃 구성
-5. 대시보드 컴포넌트 개발
-6. API 연동
-7. 데이터 시각화 구현
+1. ✅ 프로젝트 초기화 (Next.js + TypeScript) - 완료
+2. ✅ Tailwind CSS 설정 - 완료
+3. ✅ shadcn/ui 설치 및 설정 - 완료
+4. ⏳ 기본 레이아웃 구성
+5. ⏳ 대시보드 컴포넌트 개발
+6. ⏳ API 연동
+7. ⏳ 데이터 시각화 구현
 
 ## 참고 자료
 
