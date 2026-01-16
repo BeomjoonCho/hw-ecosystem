@@ -1,0 +1,215 @@
+# HW-Ecosystem 개발 스택
+
+## 프로젝트 개요
+The VC (https://thevc.kr/) 스타일의 대시보드 형태 웹사이트 개발
+
+## 참고 사이트
+- **The VC**: 한국 스타트업 투자 정보 플랫폼
+- 주요 특징: 통계 대시보드, 데이터 시각화, 필터링/검색, 테이블 형태 데이터 표시
+
+## 추천 개발 스택
+
+### 1. 프론트엔드 (핵심)
+
+#### React + TypeScript
+- **React 19**: 최신 버전의 React 사용
+- **TypeScript**: 타입 안정성 보장
+- 기존 ai-insight-agent-ori 프로젝트와 일관성 유지
+
+#### Next.js 14 (App Router)
+- **이유**: 
+  - SSR/SSG 지원으로 SEO 최적화
+  - 내장 라우팅 시스템
+  - API Routes로 풀스택 개발 가능
+  - 성능 최적화 (자동 코드 스플리팅)
+- **App Router**: 최신 Next.js 라우팅 방식
+
+#### Tailwind CSS
+- **이유**:
+  - 유틸리티 퍼스트 CSS 프레임워크
+  - The VC 스타일의 깔끔한 디자인 구현 용이
+  - 빠른 개발 속도
+  - 커스터마이징 용이
+
+#### shadcn/ui
+- **이유**:
+  - 모던하고 접근성이 좋은 컴포넌트 라이브러리
+  - Tailwind CSS 기반
+  - 커스터마이징 가능
+  - 복사해서 사용하는 방식 (코드 소유권)
+
+### 2. 데이터 시각화
+
+#### Recharts
+- **이유**:
+  - React 전용 차트 라이브러리
+  - 기존 프로젝트와 동일한 라이브러리 사용
+  - 다양한 차트 타입 지원
+  - 반응형 디자인 지원
+
+#### Tremor (선택)
+- **이유**:
+  - 대시보드 전용 컴포넌트 라이브러리
+  - 통계 카드, 차트 등 즉시 사용 가능
+  - Tailwind CSS 기반
+
+### 3. 상태 관리 & 데이터 페칭
+
+#### TanStack Query (React Query)
+- **이유**:
+  - 서버 상태 관리에 최적화
+  - 자동 캐싱 및 리프레시
+  - 로딩/에러 상태 관리
+  - The VC처럼 실시간 데이터 업데이트가 필요한 경우 적합
+
+#### Zustand
+- **이유**:
+  - 가볍고 간단한 클라이언트 상태 관리
+  - 보일러플레이트 최소화
+  - 전역 상태 관리에 적합
+
+### 4. 테이블 & 데이터 표시
+
+#### TanStack Table (React Table)
+- **이유**:
+  - 강력한 테이블 기능
+  - 정렬, 필터링, 페이지네이션 내장
+  - 가상 스크롤링 지원 (대량 데이터 처리)
+  - The VC의 투자 정보 테이블과 유사한 기능 필요
+
+### 5. 폼 & 검색
+
+#### React Hook Form
+- **이유**:
+  - 성능 최적화된 폼 관리
+  - 최소한의 리렌더링
+  - 검색 폼, 필터 폼 등에 사용
+
+#### Zod
+- **이유**:
+  - TypeScript-first 스키마 검증
+  - React Hook Form과 완벽한 통합
+  - 타입 추론 지원
+
+### 6. 애니메이션 & UX
+
+#### Framer Motion
+- **이유**:
+  - 부드러운 애니메이션 라이브러리
+  - 페이지 전환, 컴포넌트 애니메이션
+  - The VC의 모던한 UX 구현
+
+#### React Intersection Observer
+- **이유**:
+  - 스크롤 기반 애니메이션
+  - 지연 로딩 (Lazy Loading)
+  - 성능 최적화
+
+### 7. 백엔드 (선택)
+
+#### 옵션 1: FastAPI (Python)
+- **이유**:
+  - 빠른 API 개발
+  - 자동 API 문서 생성
+  - 기존 Python 프로젝트와 통합 용이
+
+#### 옵션 2: Next.js API Routes
+- **이유**:
+  - 풀스택 Next.js 개발
+  - 단일 프로젝트 관리
+  - 배포 간편
+
+### 8. 데이터베이스
+
+#### PostgreSQL
+- **이유**:
+  - 관계형 데이터베이스
+  - 복잡한 쿼리 지원
+  - 확장성 좋음
+
+#### 또는 MongoDB
+- **이유**:
+  - NoSQL 데이터베이스
+  - 유연한 스키마
+  - 빠른 개발
+
+### 9. 추가 유틸리티
+
+#### date-fns 또는 dayjs
+- 날짜 처리 및 포맷팅
+- The VC의 날짜 필터링 기능 구현
+
+#### Axios
+- HTTP 클라이언트
+- API 통신
+
+## The VC 스타일 구현 포인트
+
+### 1. 통계 카드
+- Tremor의 StatCard 컴포넌트 활용
+- 전년 대비 증감률 표시
+- 아이콘과 색상으로 시각적 구분
+
+### 2. 필터 및 검색
+- shadcn/ui의 Select, Input 컴포넌트
+- 실시간 검색 기능
+- 다중 필터 조합
+
+### 3. 데이터 테이블
+- TanStack Table로 구현
+- 정렬, 필터링, 페이지네이션
+- 로고 이미지 표시
+- 링크 및 상세 페이지 이동
+
+### 4. 차트 및 시각화
+- Recharts로 트렌드 차트 구현
+- 파이 차트로 분야별 분포 표시
+- 반응형 차트 디자인
+
+### 5. 반응형 디자인
+- Tailwind CSS의 반응형 유틸리티 활용
+- 모바일, 태블릿, 데스크톱 대응
+
+## 프로젝트 구조 (예상)
+
+```
+hw-ecosystem/
+├── docs/                    # 문서
+├── src/
+│   ├── app/                 # Next.js App Router
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   └── api/             # API Routes
+│   ├── components/          # 재사용 컴포넌트
+│   │   ├── ui/              # shadcn/ui 컴포넌트
+│   │   ├── charts/          # 차트 컴포넌트
+│   │   ├── tables/          # 테이블 컴포넌트
+│   │   └── dashboard/       # 대시보드 컴포넌트
+│   ├── lib/                 # 유틸리티 함수
+│   ├── hooks/               # 커스텀 훅
+│   ├── stores/              # Zustand 스토어
+│   └── types/               # TypeScript 타입 정의
+├── public/                  # 정적 파일
+├── package.json
+├── tsconfig.json
+├── tailwind.config.js
+└── next.config.js
+```
+
+## 다음 단계
+
+1. 프로젝트 초기화 (Next.js + TypeScript)
+2. Tailwind CSS 설정
+3. shadcn/ui 설치 및 설정
+4. 기본 레이아웃 구성
+5. 대시보드 컴포넌트 개발
+6. API 연동
+7. 데이터 시각화 구현
+
+## 참고 자료
+
+- [Next.js 공식 문서](https://nextjs.org/docs)
+- [Tailwind CSS 공식 문서](https://tailwindcss.com/docs)
+- [shadcn/ui 공식 문서](https://ui.shadcn.com/)
+- [TanStack Query 공식 문서](https://tanstack.com/query/latest)
+- [Recharts 공식 문서](https://recharts.org/)
