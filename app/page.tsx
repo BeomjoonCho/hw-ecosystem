@@ -1,63 +1,37 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex min-h-screen flex-col items-center justify-center p-8">
+      <main className="w-full max-w-7xl">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold tracking-tight">
+            HW Ecosystem Dashboard
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-2 text-lg text-muted-foreground">
+            The VC 스타일의 대시보드 플랫폼
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        
+        <div className="rounded-lg border bg-card p-6">
+          <h2 className="mb-4 text-2xl font-semibold">시작하기</h2>
+          <p className="text-muted-foreground">
+            프로젝트가 성공적으로 초기화되었습니다. 이제 대시보드 컴포넌트를 개발할 수 있습니다.
+          </p>
+          
+          <div className="mt-6 space-y-2">
+            <h3 className="font-semibold">설치된 주요 패키지:</h3>
+            <ul className="list-disc space-y-1 pl-6 text-sm text-muted-foreground">
+              <li>Next.js 16 (App Router)</li>
+              <li>React 19 + TypeScript</li>
+              <li>Tailwind CSS</li>
+              <li>shadcn/ui</li>
+              <li>TanStack Query</li>
+              <li>TanStack Table</li>
+              <li>Recharts</li>
+              <li>Zustand</li>
+              <li>React Hook Form + Zod</li>
+              <li>Framer Motion</li>
+            </ul>
+          </div>
         </div>
       </main>
     </div>

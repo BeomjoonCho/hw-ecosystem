@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HW Ecosystem Dashboard
 
-## Getting Started
+The VC (https://thevc.kr/) 스타일의 대시보드 형태 웹사이트 프로젝트입니다.
 
-First, run the development server:
+## 기술 스택
+
+- **프레임워크**: Next.js 16 (App Router)
+- **언어**: TypeScript
+- **스타일링**: Tailwind CSS
+- **UI 컴포넌트**: shadcn/ui
+- **상태 관리**: 
+  - TanStack Query (서버 상태)
+  - Zustand (클라이언트 상태)
+- **테이블**: TanStack Table
+- **차트**: Recharts
+- **폼**: React Hook Form + Zod
+- **애니메이션**: Framer Motion
+
+## 시작하기
+
+### 개발 서버 실행
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 확인하세요.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 빌드
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### 프로덕션 실행
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 프로젝트 구조
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+hw-ecosystem/
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # 루트 레이아웃
+│   ├── page.tsx           # 홈 페이지
+│   └── globals.css        # 전역 스타일
+├── components/             # React 컴포넌트
+│   └── ui/                # shadcn/ui 컴포넌트
+├── lib/                    # 유틸리티 함수
+│   ├── providers.tsx      # TanStack Query Provider
+│   ├── api-client.ts      # Axios 클라이언트
+│   └── utils.ts           # 공통 유틸리티
+├── hooks/                  # 커스텀 훅
+├── stores/                # Zustand 스토어
+│   └── useDashboardStore.ts
+├── types/                  # TypeScript 타입 정의
+│   └── index.ts
+└── docs/                   # 문서
+    └── development-stack.md
+```
 
-## Deploy on Vercel
+## 다음 단계
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. 대시보드 레이아웃 구성
+2. 통계 카드 컴포넌트 개발
+3. 데이터 테이블 구현
+4. 차트 및 시각화 추가
+5. 필터 및 검색 기능 구현
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 참고 문서
+
+자세한 개발 스택 정보는 [docs/development-stack.md](./docs/development-stack.md)를 참고하세요.
