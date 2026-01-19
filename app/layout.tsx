@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HW Ecosystem Dashboard",
-  description: "The VC 스타일의 대시보드 플랫폼",
+  title: "기술 파트너 대시보드",
+  description: "기술 파트너 정보 및 시장 동향을 한눈에",
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

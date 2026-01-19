@@ -58,7 +58,7 @@ hw-ecosystem/
 ├── types/                  # TypeScript 타입 정의
 │   └── index.ts
 └── docs/                   # 문서
-    └── development-stack.md
+    └── 01.development-stack.md
 ```
 
 ## 다음 단계
@@ -71,4 +71,4 @@ hw-ecosystem/
 
 ## 참고 문서
 
-자세한 개발 스택 정보는 [docs/development-stack.md](./docs/development-stack.md)를 참고하세요.
+자세한 개발 스택 정보는 [docs/01.development-stack.md](./docs/01.development-stack.md)를 참고하세요.

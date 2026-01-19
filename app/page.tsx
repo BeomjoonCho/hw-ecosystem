@@ -1,38 +1,143 @@
+"use client";
+
+import { Header } from "@/components/layout/Header";
+import { PartnerGrid } from "@/components/dashboard/PartnerGrid";
+import { TechnologyIntelligence } from "@/components/dashboard/TechnologyIntelligence";
+import { Partner, TechnologyIntelligence as TechnologyIntelligenceType } from "@/types";
+
+// 샘플 데이터 (상세 페이지에서 사용할 확장 데이터는 /app/partners/[id]/page.tsx에 정의됨)
+const samplePartners: Partner[] = [
+  {
+    id: "1",
+    name: "Cohere",
+    description: "Enterprise LLM - RAG Platform",
+    technologies: ["LLM", "RAG", "Embeddings"],
+    coreTechnology: "엔터프라이즈급 대규모 언어 모델 및 RAG 플랫폼",
+    projectCount: 2,
+    totalProjectCount: 208,
+    technologyScore: 4.3,
+    marketScore: 5,
+    keywords: ["AI통합솔루션", "OCR", "OCR기술", "기계학습", "자연어처리", "대형언어모델", "AI솔루션", "인공지능"],
+  },
+  {
+    id: "2",
+    name: "Databricks",
+    description: "Manufacturing Data Platform",
+    technologies: ["Lakehouse", "AI Data Points"],
+    coreTechnology: "통합 데이터 레이크하우스 아키텍처",
+    projectCount: 5,
+    totalProjectCount: 342,
+    technologyScore: 4.7,
+    marketScore: 5,
+    keywords: ["데이터레이크", "빅데이터", "AI/ML", "데이터플랫폼", "Spark"],
+  },
+  {
+    id: "3",
+    name: "Hexagon",
+    description: "Digital Twin - Smart Factory",
+    technologies: ["3D Twin", "Manufacturing Analysis"],
+    coreTechnology: "실시간 디지털 트윈 시뮬레이션",
+    projectCount: 5,
+    totalProjectCount: 89,
+    technologyScore: 4.4,
+    marketScore: 5,
+    keywords: ["디지털트윈", "스마트팩토리", "제조업", "3D시뮬레이션"],
+  },
+  {
+    id: "4",
+    name: "KOPENS",
+    description: "Industrial IIoT - Digital Twin Platform",
+    technologies: ["IIoT Platform", "Edge Computing", "Digital Twin"],
+    coreTechnology: "플랜트펄스® 산업용 IoT 플랫폼",
+    projectCount: 3,
+    totalProjectCount: 129,
+    technologyScore: 4.7,
+    marketScore: 5,
+    keywords: ["IIoT", "스마트팩토리", "엣지컴퓨팅", "디지털트윈", "산업IoT"],
+  },
+];
+
+const sampleIntelligence: TechnologyIntelligenceType = {
+  latestPartners: [
+    {
+      name: "Cohere",
+      description: "Enterprise LLM - RAG Platform",
+    },
+    {
+      name: "Databricks",
+      description: "Manufacturing Data Platform",
+    },
+    {
+      name: "Hexagon",
+      description: "Digital Twin - Smart Factory",
+    },
+    {
+      name: "KOPENS",
+      description: "Industrial IIoT - Digital Twin Platform",
+    },
+  ],
+  marketTrends: [
+    {
+      title: "AI Investment Boom to Lift U.S. Corporate Bond Issuance to $2.46 Trillion in 2026",
+      url: "https://m.economictimes.com/markets/bonds/ai-investment-boom-to-lift-us-corporate-bond-issuance-to-2-46-trillion-in-2026/articleshow/126557684.cms",
+      date: "2026.01",
+      source: "Economic Times",
+    },
+    {
+      title: "Onix 2026 AI Trends: Multi-agent Systems Redefine Enterprise Workflows",
+      url: "https://timesofindia.indiatimes.com/technology/tech-news/onix-2026-ai-trends-multi-agent-systems-redefine-enterprise-workflows/articleshow/126487254.cms",
+      date: "2026.01",
+      source: "Times of India",
+    },
+    {
+      title: "VCs Predict Tiny Teams, Personal Agents, ROI-Focus as Key Tech Trends in 2026",
+      url: "https://www.businessinsider.com/tech-trends-to-watch-in-startups-venture-capital-2026",
+      date: "2026.01",
+      source: "Business Insider",
+    },
+    {
+      title: "South Korea's Push for a Native AI Model Faces Controversy",
+      url: "https://www.wsj.com/tech/ai/the-row-over-south-koreas-push-for-a-native-ai-model-chinese-code-4c047a6f",
+      date: "2026.01",
+      source: "Wall Street Journal",
+    },
+  ],
+  conferenceTrends: [
+    {
+      title: "NVIDIA GTC 2026",
+      url: "https://www.nvidia.com/gtc/",
+      date: "2026.03",
+    },
+    {
+      title: "AI Impact Summit 2026",
+      url: "https://www.aibmag.com/top-10-ai-conferences-summits/top-ai-conferences-summits-2026/",
+      date: "2026.02",
+    },
+    {
+      title: "Gartner Data & Analytics Summit 2026",
+      url: "https://www.gartner.com/en/conferences/na/data-analytics-us",
+      date: "2026.03",
+    },
+    {
+      title: "All Things AI 2026",
+      url: "https://2026.allthingsai.org/",
+      date: "2026.03",
+    },
+    {
+      title: "HumanX 2026",
+      url: "https://www.humanx.ai/",
+      date: "2026.04",
+    },
+  ],
+};
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-8">
-      <main className="w-full max-w-7xl">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold tracking-tight">
-            HW Ecosystem Dashboard
-          </h1>
-          <p className="mt-2 text-lg text-muted-foreground">
-            The VC 스타일의 대시보드 플랫폼
-          </p>
-        </div>
-        
-        <div className="rounded-lg border bg-card p-6">
-          <h2 className="mb-4 text-2xl font-semibold">시작하기</h2>
-          <p className="text-muted-foreground">
-            프로젝트가 성공적으로 초기화되었습니다. 이제 대시보드 컴포넌트를 개발할 수 있습니다.
-          </p>
-          
-          <div className="mt-6 space-y-2">
-            <h3 className="font-semibold">설치된 주요 패키지:</h3>
-            <ul className="list-disc space-y-1 pl-6 text-sm text-muted-foreground">
-              <li>Next.js 16 (App Router)</li>
-              <li>React 19 + TypeScript</li>
-              <li>Tailwind CSS</li>
-              <li>shadcn/ui</li>
-              <li>TanStack Query</li>
-              <li>TanStack Table</li>
-              <li>Recharts</li>
-              <li>Zustand</li>
-              <li>React Hook Form + Zod</li>
-              <li>Framer Motion</li>
-            </ul>
-          </div>
-        </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main className="container mx-auto px-4 py-8 space-y-12 max-w-7xl">
+        <PartnerGrid partners={samplePartners} />
+        <TechnologyIntelligence data={sampleIntelligence} />
       </main>
     </div>
   );
